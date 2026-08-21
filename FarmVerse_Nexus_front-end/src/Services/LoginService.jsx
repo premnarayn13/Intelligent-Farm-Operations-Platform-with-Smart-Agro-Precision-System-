@@ -1,0 +1,41 @@
+import axios from 'axios';
+
+const LOGIN_URL='http://localhost:8080/farmverse/login';
+const LOGOUT_URL = 'http://localhost:8080/farmverse/logout';
+const USR_URL = 'http://localhost:8080/farmverse/user';
+
+//const REGISTER_URL = "http://localhost:8000/farmverse/register";
+
+export const registerNewUser = (user) => {
+    return axios.post(LOGIN_URL, user, {
+        withCredentials: true
+    });
+};
+export const validateUser=(userId,password)=> {
+    return axios.get(`${LOGIN_URL}/${userId}/${password}`, {
+        withCredentials: true  
+    });
+    }
+    
+export const getUserDetails=()=>{
+    return axios.get(LOGIN_URL,{
+        withCredentials: true
+    });
+    }
+ 
+ 
+export const getUserId=()=>{
+    return axios.get(USR_URL,{
+        withCredentials: true
+    });
+     }
+ 
+export const logoutUser=()=>{
+    return axios.post(
+    LOGOUT_URL,
+    {},
+    {
+        withCredentials:true
+    });
+}
+ 
